@@ -8,4 +8,4 @@ const app = express()
 
 app.use("/",router)
 await Events.sync(); // synchronisation de la base des donnees
-app.listen(5001) //definition du port
+app.listen(5000) //definition du port
