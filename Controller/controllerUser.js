@@ -1,7 +1,8 @@
+
 import Users from "../Models/modelUsers.js";
 
 
-export const AffEvent = async(req, res) =>{
+export const AffUsers = async(req, res) =>{
   // try {
   //   const data = await Events.findAll();
   //   res.json(data);
@@ -14,29 +15,26 @@ export const AffEvent = async(req, res) =>{
 
 
 
-export const ReqEvent = async (req, res) => {
-  const { titreevenent, titregeneral, titredescription, description,  titre1, titre2 } = req.body;
+export const ReqUsers = async (req, res) => {
+  const { username,  email, password, confpassword } = req.body;
 
   // Vérifier si toutes les propriétés sont remplies
-  if (titreevenent === "" ||titregeneral === "" || titredescription === "" || description === "" || titre1 === "" || titre2 === "") {
+  if (username === "" ||email === "" || password === "" || confpassword === "") {
     return res.status(500).json({ status: 'veuillez remplir tout les champs' });
   }
 
 
 
   // Utiliser l'ID généré pour créer l'événement
-  const PlanEvenement = await Users.create({
+  const PlanUsers = await Users.create({
     
-    titreevenent,
+    username,
+    email,
+    password,
+    confpassword
     
-    titregeneral,
-    
-    titredescription,
-    description,
-    titre1,
-    titre2
   });
 
-  return res.status(200).json({ PlanEvenement });
+  return res.status(200).json({ PlanUsers });
 }
 
