@@ -1,17 +1,15 @@
-import { DataTypes, INTEGER } from "sequelize";
+import { DataTypes, INTEGER,STRING } from "sequelize";
 import db from "../database.js";
 
 
 const Events = db.define("Events",{
-       Id:{type: DataTypes.INTEGER,
-       allowNull:false
-},
+  
        titreevenent: {type:DataTypes.STRING,
        allowNull:false
 },
-       photofond: {type:DataTypes.STRING,
-       allowNull:false
-},
+      photofond: {type:DataTypes.STRING,
+      allowNull:true
+ },
        titregeneral: {type:DataTypes.STRING,
        allowNull:false
 },
@@ -21,8 +19,8 @@ const Events = db.define("Events",{
        description: {type: DataTypes.STRING,
        allowNull:false
 },
-       imageprofil: {type: DataTypes.STRING,
-       allowNull:false},
+        imageprofil: {type: DataTypes.STRING,
+       allowNull:true},
        titre1: {type: DataTypes.STRING,
        allowNull:false},
 
@@ -32,7 +30,7 @@ const Events = db.define("Events",{
        createdAt:{ type:DataTypes.DATE, 
        allowNull: false},
 
-       updateDat: {type:DataTypes.DATE,
+       updatedAt: {type:DataTypes.DATE,
        allowNull:false}
 
 
