@@ -26,15 +26,13 @@ export const ReqLogin = async (req, res) => {
 
 
   // Utiliser l'ID généré pour créer l'événement
-  const PlanLogin = await Users.findAll({
-    
-    username,
-    password,
-    
-  });
+  const Username = await Users.findOne({
+    where:{username}});
+    const Password = await Users.findOne({
+      where:{password}});
+  if(Username){console.log("ok")}
 
-  
-
-  return res.status(200).json({ PlanLogin });
+  return res.status(200).json({ Username });
+  return res.status(200).json({ Password });
 }
 
