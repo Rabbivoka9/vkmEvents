@@ -4,6 +4,7 @@ import express from "express"
 import router from "./route/routeCreaEvents.js"
 import routerUsers from "./route/routeUsers.js"
 import routerLogin from "./route/routeConnexion.js"
+import routerInvite from "./route/routeInviter.js"
 import Events from "./Models/modelEvents.js"
 import cors from "cors"
 import bodyParser from "body-parser"
@@ -15,7 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use("/",routerUsers)
 app.use("/",routerLogin)
+app.use("/",routerInvite)
 app.use("/",router)
 await Users.sync();
 await Events.sync(); // synchronisation de la base des donnees
-app.listen(4000) //definition du port
+app.listen(5000) //definition du port
