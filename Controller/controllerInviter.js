@@ -11,28 +11,15 @@ export const AffInvite = async(req, res) =>{
   // } 
 }
 
-
-
-
 export const ReqInvite = async (req, res) => {
   const { nom, table} = req.body;
-
-  // Vérifier si toutes les propriétés sont remplies
   if (nom === "" ||table === "" ) {
-    return res.status(500).json({ status: 'veuillez remplir tout les champs' });
-  }
-
-
-
-  // Utiliser l'ID généré pour créer l'événement
-  const PlanInvite = await Inviter.create({
-    
+   return res.status(200).json({ status: 'veuillez remplir tout les champs' });
+   }
+   const PlanInvite = await Inviter.create({
     nom,
     table
-    
-    
-  });
-
+   });
   return res.status(200).json({ PlanInvite });
 }
 
