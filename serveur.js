@@ -22,4 +22,4 @@ app.use("/",router)
 await Users.sync();
 await Inviter.sync();
 await Events.sync(); // synchronisation de la base des donnees
-app.listen(5000) //definition du port
+app.listen(3000) //definition du port

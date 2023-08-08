@@ -20,20 +20,23 @@ export const ReqLogin = async (req, res) => {
   if (username === "" || password === "" ) {
     return res.status(500).json({ status: 'veuillez remplir tout les champs' });
   }
-  const Username = await Users.findOne({
+  const user = await Users.findOne({
     where:{username}});
     const Password = await Users.findOne({
       where:{password}});
  
-      if ( ! Username ) {
+      if ( ! user ) {
+        console.log("not ok username")
         return res.status(500).json({ status: 'veuillez remplir tout les champs' });
+        
       }
-      if (! Password)
+      if (user.password!== password){
+      console.log("not ok pwd")
       return res.status(500).json({ status: 'veuillez remplir tout les champs' });
-      {console.log("ok")
+      
     }
-
-      return res.status(200).json({ Password });
+   
+      return res.status(200).json({Username:user.username, Id:user.id });
 
 }
 

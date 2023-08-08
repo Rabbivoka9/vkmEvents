@@ -1,8 +1,15 @@
 import { DataTypes, INTEGER,STRING } from "sequelize";
+import Users from "./modelUsers.js";
 import db from "../database.js";
 
 
+
 const Events = db.define("Events",{
+
+idUser: {
+       type:DataTypes.INTEGER,
+       allowNull:false
+},
   
        titreevenent: {type:DataTypes.STRING,
        allowNull:false
@@ -35,5 +42,10 @@ const Events = db.define("Events",{
 
 
 })
+
+Events.belongsTo(Users, { foreignKey : "idUser"});
+
+
+     
 export default Events
 
